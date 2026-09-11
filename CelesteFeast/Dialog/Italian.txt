@@ -1,0 +1,183 @@
+EP_CABIN=
+		[GRANNY right normal]
+		Bentornate.
+
+		[THEO right excited]
+		{+MADELINE}!
+		Siete riuscite ad arrivare in vetta?
+
+		{trigger 0 Badeline emerges}
+
+		[MADELINE left normal]
+		Sì.
+		È stato incredibile.
+
+		[GRANNY right normal]
+		Stupendo, non trovate?
+
+		[BADELINE left upset]
+		Non credevo che ne sarebbe valsa la pena...
+
+		[BADELINE left normal]
+		Mi sbagliavo di grosso.
+
+		[THEO right thinking]
+		Avrei dovuto darti il mio cellulare,{n}così avresti scattato {~}il selfie dei selfie.{/~}
+
+		{trigger 1 Fade out, hear knock on door, fade in and Oshiro enters}
+
+		[OSHIRO left normal]
+		Buonasera a tutti.
+
+		[BADELINE right angry]
+		E {~}tu{/~} che ci fai qui?
+
+		[OSHIRO left normal]
+		Un uccellino mi ha detto che{n}ci sarebbe stata una festa.
+
+		[OSHIRO left sidehappy]
+		{+thought}Un uccellino PR, totalmente magico!{+endthought}
+
+		[OSHIRO left drama]
+		Ma se sono di troppo, toglierò il disturbo.
+
+		[MADELINE right sad]
+		Per favore, resti, {+MROSHIRO}.
+
+		[MADELINE right normal]
+		È bello rivederla.
+
+		{trigger 2 Oshiro settles in}
+
+		[GRANNY left normal]
+		Sai, è la prima volta che ti vedo{n}lontano da quel tuo albergo, {+OSHIRO}.
+		Sono contenta che tu ce l’abbia fatta.
+		{+MADELINE} ci sta preparando un banchetto{n}con tutti gli ingredienti che ha raccolto.
+
+		[OSHIRO left normal]
+		Ma è magnifico, {+MS_MADELINE}.
+
+		[THEO right normal]
+		Aspetta, aspetta... ingredienti? Io non ne ho visto neanche uno.
+
+		[THEO right excited]
+		Vabbè, sarà una forza!
+
+		[BADELINE right scoff]
+		Non contateci troppo. Non è poi tutto questo gran banchetto.
+
+		{trigger 3 Maddy Turns}
+
+		[MADELINE left normal]
+		Lo so che non vedevi l’ora, però.
+
+		[BADELINE right worried]
+		Vero.
+
+		{trigger 3 Maddy Turns}
+
+		[MADELINE right sad]
+		Non posso garantirti che sarà{n}all’altezza delle aspettative, {+THEO}.
+
+		[MADELINE right normal]
+		Ma ho fatto del mio meglio.
+
+EP_PIE_START=
+		[MADELINE right normal]
+		Allora?
+		Com’è?
+
+EP_PIE_DISAPPOINTED=
+		[THEO left wtf]
+		Un gelato?
+
+		[OSHIRO left worried]
+		È una specie di scherzo, {+MS_MADELINE}?
+
+		[GRANNY left normal]
+		Be’, direi che il banchetto c’è.{n}Prendete tutti un cucchiaino minuscolo.
+
+EP_PIE_GROSSED_OUT=
+		[THEO left wtf]
+		{+MADELINE}, apprezzo da morire che tu l’abbia preparato per noi.
+		Immagino che su questa montagna{n}non ci fosse poi molto da trovare.
+
+		[GRANNY left normal]
+		È il pensiero che conta.
+
+		[BADELINE left angry]
+		Non sapete apprezzare la buona cucina, gente.
+		La mangerò tutta io.
+
+		[MADELINE right sad]
+		Non sei obbligata a farlo.
+
+		[BADELINE left worried]
+		Già... era una minaccia a vuoto.
+
+EP_PIE_OKAY=
+		[OSHIRO left normal]
+		Quel che conta è che ha fatto{n}del suo meglio, {+MS_MADELINE}.
+
+		[BADELINE left angry]
+		Ma chi lo ha invitato questo?
+
+		[THEO left thinking]
+		Andiamo, è davvero buono.
+
+		[GRANNY left normal]
+		Di certo ho assaggiato di peggio.
+
+		[THEO left normal]
+		Grazie del gelato, {+MADELINE}.
+
+EP_PIE_REALLY_GOOD=
+		[GRANNY left normal]
+		Sono molto colpita!
+		Questa banana split fa concorrenza alla mia cucina.
+
+		[BADELINE left normal]
+		Niente male.
+
+		[THEO left excited]
+		Accidentaccio!
+
+		[THEO left normal]
+		È gustosissima.
+
+		[OSHIRO left normal]
+		{+MS_MADELINE}, cucinerebbe per{n}il nostro buffet di riapertura?
+
+		[THEO left excited]
+		Posso portarne una fetta ad {+ALEX}?
+		Ah, già... si scioglierebbe.
+
+EP_PIE_AMAZING=
+		[THEO left wtf]
+		{+MADELINE}.
+
+		[THEO left excited]
+		È la cosa migliore che abbia mai assaggiato!
+
+		[MADELINE right sad]
+		Andiamo. Sii sincero.
+
+		[GRANNY left normal]
+		Ha ragione, mia cara.
+		È deliziosa.
+
+		[OSHIRO left normal]
+		È veramente magnifica, {+MS_MADELINE}.
+
+		[OSHIRO left worried]
+		{~}Musica per le papille gustative!{/~}
+
+		[OSHIRO left worried]
+		{~}Non pensavo fosse possibile creare un gelato del genere!{/~}
+
+		[BADELINE left scoff]
+		Posso prenderne una parte di merito?
+
+		[MADELINE right normal]
+		Wow, grazie, ragazzi.
+		Ci ho lavorato sodo.

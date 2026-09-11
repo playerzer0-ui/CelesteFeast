@@ -1,0 +1,183 @@
+EP_CABIN=
+		[GRANNY right normal]
+		Hola de nuevo.
+
+		[THEO right excited]
+		{+MADELINE}!
+		¿Habéis llegado a la cumbre?
+
+		{trigger 0 Badeline emerges}
+
+		[MADELINE left normal]
+		Sí.
+		Ha sido increíble.
+
+		[GRANNY right normal]
+		Es precioso, ¿verdad?
+
+		[BADELINE left upset]
+		No pensaba que valdría la pena...
+
+		[BADELINE left normal]
+		Pero me ha compensado con creces.
+
+		[THEO right thinking]
+		Tenía que haberte dejado mi teléfono para{n}que te hicieras {~}el selfie definitivo.{/~}
+
+		{trigger 1 Fade out, hear knock on door, fade in and Oshiro enters}
+
+		[OSHIRO left normal]
+		Buenas tardes a todos.
+
+		[BADELINE right angry]
+		¿Qué hace {~}usted{/~} aquí?
+
+		[OSHIRO left normal]
+		Un pajarito me dijo que había una fiesta.
+
+		[OSHIRO left sidehappy]
+		{+thought}Confirmar asistencia por pájaro,{n}¡positivamente mágico!{+endthought}
+
+		[OSHIRO left drama]
+		Pero si no soy bienvenido, me marcharé.
+
+		[MADELINE right sad]
+		Por favor, quédese {+MROSHIRO}.
+
+		[MADELINE right normal]
+		Me alegro de verle.
+
+		{trigger 2 Oshiro settles in}
+
+		[GRANNY left normal]
+		¿Sabes? Es la primera vez que{n}te veo fuera del hotel, {+OSHIRO}.
+		Me alegro.
+		{+MADELINE} nos está preparando un festín con{n}todos los ingredientes que ha ido recogiendo.
+
+		[OSHIRO left normal]
+		Oh, eso es maravilloso, {+MS_MADELINE}.
+
+		[THEO right normal]
+		Espera, espera... ¿ingredientes? Yo no he visto ninguno.
+
+		[THEO right excited]
+		Bueno, da igual. ¡Esto va a ser increíble!
+
+		[BADELINE right scoff]
+		No te vengas arriba. Tampoco es para tanto como festín.
+
+		{trigger 3 Maddy Turns}
+
+		[MADELINE left normal]
+		Aunque sé que tenías ganas.
+
+		[BADELINE right worried]
+		Cierto.
+
+		{trigger 3 Maddy Turns}
+
+		[MADELINE right sad]
+		No puedo prometerte que{n}cumpla tus expectativas, {+THEO}.
+
+		[MADELINE right normal]
+		Pero he hecho lo que he podido.
+
+EP_PIE_START=
+		[MADELINE right normal]
+		¿Y?
+		¿Qué tal está?
+
+EP_PIE_DISAPPOINTED=
+		[THEO left wtf]
+		¿Un helado?
+
+		[OSHIRO left worried]
+		¿Esto es una broma, {+MS_MADELINE}?
+
+		[GRANNY left normal]
+		Bueno, supongo que tenemos un festín.{n}Que cada uno coja una cucharita diminuta.
+
+EP_PIE_GROSSED_OUT=
+		[THEO left wtf]
+		{+MADELINE}, te agradezco un montón que nos hayas preparado esto...
+		Supongo que no había muchas cosas{n}por ahí en esta montaña.
+
+		[GRANNY left normal]
+		La intención es lo que cuenta.
+
+		[BADELINE left angry]
+		No sabéis apreciar la buena comida.
+		Me lo comeré todo yo.
+
+		[MADELINE right sad]
+		No tienes que hacer eso.
+
+		[BADELINE left worried]
+		Sí... era una amenaza vacía.
+
+EP_PIE_OKAY=
+		[OSHIRO left normal]
+		Lo importante es que se haya {n}esforzado, {+MS_MADELINE}.
+
+		[BADELINE left angry]
+		¿Quién ha invitado a este tipo?
+
+		[THEO left thinking]
+		Venga, está muy bueno.
+
+		[GRANNY left normal]
+		He comido cosas peores.
+
+		[THEO left normal]
+		Gracias por el helado, {+MADELINE}.
+
+EP_PIE_REALLY_GOOD=
+		[GRANNY left normal]
+		¡Estoy impresionada!
+		Este banana split le hace la competencia a mi cocina.
+
+		[BADELINE left normal]
+		No está mal.
+
+		[THEO left excited]
+		¡Qué pasada!
+
+		[THEO left normal]
+		Esto está riquísimo.
+
+		[OSHIRO left normal]
+		{+MS_MADELINE}, ¿está disponible para el{n}catering de nuestro banquete de apertura?
+
+		[THEO left excited]
+		¿Puedo llevarme un trozo a casa para {+ALEX}?
+		Ah, espera... se va a derretir.
+
+EP_PIE_AMAZING=
+		[THEO left wtf]
+		{+MADELINE}.
+
+		[THEO left excited]
+		¡Esto es lo mejor que he comido jamás!
+
+		[MADELINE right sad]
+		Venga, decid la verdad.
+
+		[GRANNY left normal]
+		Tiene razón, querida.
+		Está delicioso.
+
+		[OSHIRO left normal]
+		Es verdaderamente magnífico, {+MS_MADELINE}.
+
+		[OSHIRO left worried]
+		{~}¡Una sinfonía para el paladar!{/~}
+
+		[OSHIRO left worried]
+		{~}¡No creía que pudiera existir un helado así!{/~}
+
+		[BADELINE left scoff]
+		¿Puedo llevarme parte del mérito?
+
+		[MADELINE right normal]
+		Uau, gracias.
+		Me he esforzado mucho.

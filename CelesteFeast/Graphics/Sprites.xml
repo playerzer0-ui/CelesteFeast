@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Sprites>
+  <orange copy="strawberry" path="collectables/orange/" />
+  <icecream copy="strawberry" path="collectables/icecream/" />
+  <banana copy="strawberry" path="collectables/banana/" />
+  <chocolate copy="strawberry" path="collectables/chocolate/" />
+  <melon copy="strawberry" path="collectables/melon/" />
+</Sprites>

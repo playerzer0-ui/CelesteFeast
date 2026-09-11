@@ -1,0 +1,183 @@
+EP_CABIN=
+		[GRANNY right normal]
+		Willkommen zurück.
+
+		[THEO right excited]
+		{+MADELINE}!
+		Hast du es bis zum Gipfel geschafft?
+
+		{trigger 0 Badeline emerges}
+
+		[MADELINE left normal]
+		Ja, haben wir.
+		Es war unglaublich.
+
+		[GRANNY right normal]
+		Schön, nicht wahr?
+
+		[BADELINE left upset]
+		Ich hätte nicht gedacht, dass es sich lohnt ...
+
+		[BADELINE left normal]
+		Aber das hat es sich. Total.
+
+		[THEO right thinking]
+		Ich hätte dir mein Telefon geben sollen,{n}damit du {~}das ultimative Selfie{/~} machen kannst.
+
+		{trigger 1 Fade out, hear knock on door, fade in and Oshiro enters}
+
+		[OSHIRO left normal]
+		Guten Abend, alle zusammen.
+
+		[BADELINE right angry]
+		Was machen {~}Sie{/~} denn hier?
+
+		[OSHIRO left normal]
+		Ein Vöglein hat mir gezwitschert, dass hier eine Party stattfinden soll.
+
+		[OSHIRO left sidehappy]
+		{+thought}Ein Partyeinladevogel von der ganz besonderen Art!{+endthought}
+
+		[OSHIRO left drama]
+		Aber wenn ich nicht willkommen bin, verabschiede ich mich wieder.
+
+		[MADELINE right sad]
+		Bitte bleiben Sie, {+MROSHIRO}.
+
+		[MADELINE right normal]
+		Es ist schön, Sie zu sehen.
+
+		{trigger 2 Oshiro settles in}
+
+		[GRANNY left normal]
+		Weißt du, das ist das erste Mal, dass ich dich außerhalb deines Hotels sehe, {+OSHIRO}.
+		Ich bin froh, dass du es geschafft hast.
+		Und {+MADELINE} hier macht uns ein Festmahl mit{n}all den Zutaten, die sie gesammelt hat.
+
+		[OSHIRO left normal]
+		Oh, das ist wunderbar, {+MS_MADELINE}.
+
+		[THEO right normal]
+		Warte, warte ... Zutaten? Hab ich keine gesehen.
+
+		[THEO right excited]
+		Egal, das wird großartig!
+
+		[BADELINE right scoff]
+		Mach dir keine Hoffnungen. So groß ist das Festmahl nun auch wieder nicht.
+
+		{trigger 3 Maddy Turns}
+
+		[MADELINE left normal]
+		Ich weiß, dass du dich trotzdem darauf gefreut hast.
+
+		[BADELINE right worried]
+		Stimmt.
+
+		{trigger 3 Maddy Turns}
+
+		[MADELINE right sad]
+		Ich kann nicht versprechen, dass es deinen Erwartungen gerecht wird, {+THEO}.
+
+		[MADELINE right normal]
+		Aber ich habe mein Bestes gegeben.
+
+EP_PIE_START=
+		[MADELINE right normal]
+		Und?
+		Wie schmeckt's?
+
+EP_PIE_DISAPPOINTED=
+		[THEO left wtf]
+		Ein Eis?
+
+		[OSHIRO left worried]
+		Soll das ein Witz sein, {+MS_MADELINE}?
+
+		[GRANNY left normal]
+		Na ja, ein Festmahl haben wir wohl.{n}Jeder nimmt einen winzigen Löffel.
+
+EP_PIE_GROSSED_OUT=
+		[THEO left wtf]
+		{+MADELINE}, ich schätze es wirklich, dass du das für uns gemacht hast.
+		Ich schätze, auf diesem Berg gab es{n}einfach nicht besonders viel zu finden.
+
+		[GRANNY left normal]
+		Es ist der Gedanke, der zählt.
+
+		[BADELINE left angry]
+		Ihr Leute wisst gutes Essen einfach nicht zu schätzen.
+		Dann esse ich eben alles alleine.
+
+		[MADELINE right sad]
+		Das musst du nicht tun.
+
+		[BADELINE left worried]
+		Ja ... Es war nur eine leere Drohung.
+
+EP_PIE_OKAY=
+		[OSHIRO left normal]
+		Wichtig ist, dass du dein Bestes{n}versucht hast, {+MS_MADELINE}.
+
+		[BADELINE left angry]
+		Wer hat diesen Typen eingeladen??
+
+		[THEO left thinking]
+		Komm schon, das ist wirklich gut.
+
+		[GRANNY left normal]
+		Ich hab gewiss schon Schlimmeres gegessen.
+
+		[THEO left normal]
+		Danke für das Eis, {+MADELINE}.
+
+EP_PIE_REALLY_GOOD=
+		[GRANNY left normal]
+		Ich bin beeindruckt!
+		Dieser Bananensplit macht meiner Küche ernsthaft Konkurrenz.
+
+		[BADELINE left normal]
+		Nicht schlecht.
+
+		[THEO left excited]
+		Heiliger Strohsack!
+
+		[THEO left normal]
+		Das ist vielleicht lecker.
+
+		[OSHIRO left normal]
+		{+MS_MADELINE}, wären Sie bereit,{n}bei unserem Wiedereröffnungsbankett mitzuhelfen?
+
+		[THEO left excited]
+		Kann ich ein Stück für {+ALEX} mit nach Hause nehmen?
+		Oh, warte ... das schmilzt ja.
+
+EP_PIE_AMAZING=
+		[THEO left wtf]
+		{+MADELINE}.
+
+		[THEO left excited]
+		Das ist das Beste, was ich je gegessen habe!
+
+		[MADELINE right sad]
+		Komm schon. Sei ehrlich.
+
+		[GRANNY left normal]
+		Er hat Recht, Liebes.
+		Es ist köstlich.
+
+		[OSHIRO left normal]
+		Es ist wirklich großartig, {+MS_MADELINE}.
+
+		[OSHIRO left worried]
+		{~}Eine Symphonie für den Gaumen!{/~}
+
+		[OSHIRO left worried]
+		{~}Ich hätte nicht gedacht, dass so ein Eis überhaupt möglich ist!{/~}
+
+		[BADELINE left scoff]
+		Kann ich dafür auch etwas Lob haben?
+
+		[MADELINE right normal]
+		Wow, danke euch allen.
+		Ich hab mir wirklich Mühe gegeben.

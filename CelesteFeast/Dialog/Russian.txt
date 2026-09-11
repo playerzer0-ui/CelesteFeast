@@ -1,0 +1,183 @@
+EP_CABIN=
+		[GRANNY right normal]
+		С возвращением.
+
+		[THEO right excited]
+		{+MADELINE}!
+		Ну как, побывали на вершине?
+
+		{trigger 0 Badeline emerges}
+
+		[MADELINE left normal]
+		Да. Мы смогли.
+		И это было потрясающе.
+
+		[GRANNY right normal]
+		Красиво там, правда?
+
+		[BADELINE left upset]
+		Я не считала, что оно будет того стоить...
+
+		[BADELINE left normal]
+		Но оно того стоило!!!
+
+		[THEO right thinking]
+		Надо было дать тебе телефон,{n}чтобы ты сделала {~}Селфи года{/~}!
+
+		{trigger 1 Fade out, hear knock on door, fade in and Oshiro enters}
+
+		[OSHIRO left normal]
+		Добрый вечер всем присутствующим!
+
+		[BADELINE right angry]
+		А {~}вы{/~} что тут делаете?
+
+		[OSHIRO left normal]
+		Птичка принесла весточку, что здесь сегодня празднуют.
+
+		[OSHIRO left sidehappy]
+		{+thought}Ну да. Волшебная пташка, электронно-почтовый голубь.{+endthought}
+
+		[OSHIRO left drama]
+		Впрочем, если мне тут не рады, я немедленно удалюсь.
+
+		[MADELINE right sad]
+		Оставайтесь, {+MROSHIRO}.
+
+		[MADELINE right normal]
+		Рады вас видеть.
+
+		{trigger 2 Oshiro settles in}
+
+		[GRANNY left normal]
+		А знаете, я ведь, пожалуй, впервые вижу вас{n}за пределами вашего отеля, {+OSHIRO}.
+		Хорошо, что вы решили выбраться.
+		{+MADELINE} как раз готовит нам пир{n}из всех ингредиентов, что ей удалось собрать.
+
+		[OSHIRO left normal]
+		О, это замечательно, {+MS_MADELINE}!
+
+		[THEO right normal]
+		Погоди, погоди... ингредиенты? Я их вообще не видел.
+
+		[THEO right excited]
+		Ну и ладно, это будет потрясающе!
+
+		[BADELINE right scoff]
+		Вы особо не надейтесь. Не такой уж это и пир.
+
+		{trigger 3 Maddy Turns}
+
+		[MADELINE left normal]
+		А ведь ты так его ждала.
+
+		[BADELINE right worried]
+		Точно!
+
+		{trigger 3 Maddy Turns}
+
+		[MADELINE right sad]
+		Не обещаю, что всё будет так уж хорошо, {+THEO}...
+
+		[MADELINE right normal]
+		Но я стараюсь!
+
+EP_PIE_START=
+		[MADELINE right normal]
+		Ну?
+		Съедобно?
+
+EP_PIE_DISAPPOINTED=
+		[THEO left wtf]
+		Мороженое?
+
+		[OSHIRO left worried]
+		Это какая-то шутка, {+MS_MADELINE}?
+
+		[GRANNY left normal]
+		Что ж, пир у нас всё-таки есть.{n}Всем взять по крошечной ложечке.
+
+EP_PIE_GROSSED_OUT=
+		[THEO left wtf]
+		{+MADELINE}, я очень ценю то, что ты приготовила это для нас...
+		Похоже, на этой горе было{n}не так уж много всего.
+
+		[GRANNY left normal]
+		Важен не подарок, а внимание.
+
+		[BADELINE left angry]
+		Вы, народ, просто не разбираетесь во вкусняшках.
+		Ничего, мне больше достанется.
+
+		[MADELINE right sad]
+		Не стоит тебе это есть.
+
+		[BADELINE left worried]
+		Ой... Вот только угроз не надо.
+
+EP_PIE_OKAY=
+		[OSHIRO left normal]
+		Главное, что вы старались, {+MS_MADELINE}.
+
+		[BADELINE left angry]
+		Да кто вообще его позвал?
+
+		[THEO left thinking]
+		Да ладно, нормальный у него вкус.
+
+		[GRANNY left normal]
+		Мне доводилось есть и кое-что похуже.
+
+		[THEO left normal]
+		Спасибо за мороженое, {+MADELINE}!
+
+EP_PIE_REALLY_GOOD=
+		[GRANNY left normal]
+		Ничего себе!
+		Этот банановый сплит даст моей стряпне фору!
+
+		[BADELINE left normal]
+		Неплохо.
+
+		[THEO left excited]
+		Боже правый!
+
+		[THEO left normal]
+		Вкуснотища!
+
+		[OSHIRO left normal]
+		{+MS_MADELINE}, не согласитесь ли вы приготовить банкет в честь нашего повторного открытия?
+
+		[THEO left excited]
+		Можно взять кусочек домой, для {+ALEX}?
+		А, нет... он же растает.
+
+EP_PIE_AMAZING=
+		[THEO left wtf]
+		{+MADELINE}...
+
+		[THEO left excited]
+		В жизни ничего вкуснее не пробовал!
+
+		[MADELINE right sad]
+		Да ну тебя. Врунишка.
+
+		[GRANNY left normal]
+		Он прав, милая моя.
+		Это невероятно вкусно.
+
+		[OSHIRO left normal]
+		Это поистине великолепно, {+MS_MADELINE}.
+
+		[OSHIRO left worried]
+		{~}Настоящая симфония вкуса!{/~}
+
+		[OSHIRO left worried]
+		{~}Не думал, что такое мороженое вообще возможно!{/~}
+
+		[BADELINE left scoff]
+		А можно и себе часть славы приписать?
+
+		[MADELINE right normal]
+		Ох, спасибо, люди добрые.
+		Я и правда очень старалась.

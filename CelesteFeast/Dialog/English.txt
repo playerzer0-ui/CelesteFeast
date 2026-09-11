@@ -1,0 +1,183 @@
+EP_CABIN=
+		[GRANNY right normal]
+		Welcome back.
+
+		[THEO right excited]
+		{+MADELINE}!
+		Did you make it to the summit?
+
+		{trigger 0 Badeline emerges}
+
+		[MADELINE left normal]
+		Yeah, we did.
+		It was incredible.
+
+		[GRANNY right normal]
+		Beautiful, isn't it?
+
+		[BADELINE left upset]
+		I didn't think it would be worth it...
+
+		[BADELINE left normal]
+		But it totally was.
+
+		[THEO right thinking]
+		I should've given you my phone so{n}you could take {~}The Ultimate Selfie.{/~}
+
+		{trigger 1 Fade out, hear knock on door, fade in and Oshiro enters}
+
+		[OSHIRO left normal]
+		Good evening, everyone.
+
+		[BADELINE right angry]
+		What are {~}you{/~} doing here?
+
+		[OSHIRO left normal]
+		A little bird told me there was to be a party.
+
+		[OSHIRO left sidehappy]
+		{+thought}RSVP-by-bird, positively magical!{+endthought}
+
+		[OSHIRO left drama]
+		But if I am unwelcome, I shall take my leave.
+
+		[MADELINE right sad]
+		Please stay, {+MROSHIRO}.
+
+		[MADELINE right normal]
+		It's good to see you.
+
+		{trigger 2 Oshiro settles in}
+
+		[GRANNY left normal]
+		Y'know, this is the first time I've seen{n}you outside that hotel of yours, {+OSHIRO}.
+		I'm glad you made it.
+		{+MADELINE} here is making us a feast with all{n}of the ingredients she's been collecting.
+
+		[OSHIRO left normal]
+		Oh, that's wonderful, {+MS_MADELINE}.
+
+		[THEO right normal]
+		Wait, wait... ingredients? Never seen any.
+
+		[THEO right excited]
+		Never mind that, this will be amazing!
+
+		[BADELINE right scoff]
+		Don't get your hopes up. It's not that much of a feast.
+
+		{trigger 3 Maddy Turns}
+
+		[MADELINE left normal]
+		I know you were looking forward to it though.
+
+		[BADELINE right worried]
+		True.
+
+		{trigger 3 Maddy Turns}
+
+		[MADELINE right sad]
+		I can't promise it'll live up to the hype, {+THEO}.
+
+		[MADELINE right normal]
+		But I tried my best.
+
+EP_PIE_START=
+		[MADELINE right normal]
+		So?
+		How's it taste?
+
+EP_PIE_DISAPPOINTED=
+		[THEO left wtf]
+		An ice cream?
+
+		[OSHIRO left worried]
+		Is this some kind of joke, {+MS_MADELINE}?
+
+		[GRANNY left normal]
+		Well, I suppose we have a{n}feast all right. Everybody take a tiny spoon.
+
+EP_PIE_GROSSED_OUT=
+		[THEO left wtf]
+		{+MADELINE}, I super appreciate you making this for us.
+		Guess there wasn't much stuff out there on this mountain.
+
+		[GRANNY left normal]
+		It's the thought that counts.
+
+		[BADELINE left angry]
+		You people just can't appreciate good food.
+		I'll eat all of it myself.
+
+		[MADELINE right sad]
+		You don't have to do that.
+
+		[BADELINE left worried]
+		Yeah... it was an empty threat.
+
+EP_PIE_OKAY=
+		[OSHIRO left normal]
+		The important thing is that you{n}tried your best, {+MS_MADELINE}.
+
+		[BADELINE left angry]
+		Who invited this guy?
+
+		[THEO left thinking]
+		Come on, it's really good.
+
+		[GRANNY left normal]
+		I've certainly had worse.
+
+		[THEO left normal]
+		Thanks for the ice cream, {+MADELINE}.
+
+EP_PIE_REALLY_GOOD=
+		[GRANNY left normal]
+		I'm impressed!
+		This banana split gives my cooking a run for its money.
+
+		[BADELINE left normal]
+		Not bad.
+
+		[THEO left excited]
+		Holy crap!
+
+		[THEO left normal]
+		This is so tasty.
+
+		[OSHIRO left normal]
+		{+MS_MADELINE}, are you available to{n}cater our re-opening banquet?
+
+		[THEO left excited]
+		Can I take a slice home for {+ALEX}?
+		Oh wait, it will melt.
+
+EP_PIE_AMAZING=
+		[THEO left wtf]
+		{+MADELINE}.
+
+		[THEO left excited]
+		This is the best thing I've ever tasted!
+
+		[MADELINE right sad]
+		Come on. Be honest.
+
+		[GRANNY left normal]
+		He's right, dear.
+		This is delicious.
+
+		[OSHIRO left normal]
+		It's truly magnificent, {+MS_MADELINE}.
+
+		[OSHIRO left worried]
+		{~}A symphony for the taste buds!{/~}
+
+		[OSHIRO left worried]
+		{~}Didn't think ice cream like this was even possible!{/~}
+
+		[BADELINE left scoff]
+		Can I take partial credit for this?
+
+		[MADELINE right normal]
+		Wow, thanks everyone.
+		I worked really hard for it.

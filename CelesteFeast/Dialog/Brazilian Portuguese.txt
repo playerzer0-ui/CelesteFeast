@@ -1,0 +1,183 @@
+EP_CABIN=
+		[GRANNY right normal]
+		Bem-vinda de volta.
+
+		[THEO right excited]
+		{+MADELINE}!
+		Você conseguiu chegar ao cume?
+
+		{trigger 0 Badeline emerges}
+
+		[MADELINE left normal]
+		Sim, a gente conseguiu.
+		Foi incrível.
+
+		[GRANNY right normal]
+		Lindo, não é?
+
+		[BADELINE left upset]
+		Eu não achei que ia valer a pena...
+
+		[BADELINE left normal]
+		Mas valeu muito.
+
+		[THEO right thinking]
+		Eu devia ter te dado o meu celular{n}pra você poder tirar {~}A Selfie Definitiva.{/~}
+
+		{trigger 1 Fade out, hear knock on door, fade in and Oshiro enters}
+
+		[OSHIRO left normal]
+		Boa noite a todos.
+
+		[BADELINE right angry]
+		O que {~}você{/~} está fazendo aqui?
+
+		[OSHIRO left normal]
+		Um passarinho me contou que ia ter uma festa.
+
+		[OSHIRO left sidehappy]
+		{+thought}RSVP por passarinho, positivamente mágico!{+endthought}
+
+		[OSHIRO left drama]
+		Mas se não sou bem-vindo, vou-me embora.
+
+		[MADELINE right sad]
+		Por favor, fique, {+MROSHIRO}.
+
+		[MADELINE right normal]
+		É bom ver o senhor.
+
+		{trigger 2 Oshiro settles in}
+
+		[GRANNY left normal]
+		Sabe, essa é a primeira vez que vejo{n}você fora daquele seu hotel, {+OSHIRO}.
+		Fico feliz que tenha conseguido.
+		A {+MADELINE} aqui está preparando um banquete{n}com todos os ingredientes que ela juntou.
+
+		[OSHIRO left normal]
+		Ah, que maravilha, {+MS_MADELINE}.
+
+		[THEO right normal]
+		Pera, pera... ingredientes? Eu não vi nenhum.
+
+		[THEO right excited]
+		Ah, deixa pra lá. Isso vai ser incrível!
+
+		[BADELINE right scoff]
+		Não fique muito esperançoso. Não é lá um grande banquete.
+
+		{trigger 3 Maddy Turns}
+
+		[MADELINE left normal]
+		Eu sei que você estava ansiosa por isso.
+
+		[BADELINE right worried]
+		Verdade.
+
+		{trigger 3 Maddy Turns}
+
+		[MADELINE right sad]
+		Não posso prometer estar à altura{n}da expectativa, {+THEO}.
+
+		[MADELINE right normal]
+		Mas dei meu melhor.
+
+EP_PIE_START=
+		[MADELINE right normal]
+		E então?
+		Como está?
+
+EP_PIE_DISAPPOINTED=
+		[THEO left wtf]
+		Um sorvete?
+
+		[OSHIRO left worried]
+		Isso é algum tipo de piada, {+MS_MADELINE}?
+
+		[GRANNY left normal]
+		Bem, acho que temos um banquete.{n}Todo mundo pega uma colherzinha.
+
+EP_PIE_GROSSED_OUT=
+		[THEO left wtf]
+		{+MADELINE}, agradeço muito você ter{n}feito isso pra gente...
+		Acho que não tinha muita coisa{n}pra encontrar nessa montanha.
+
+		[GRANNY left normal]
+		O que vale é a intenção.
+
+		[BADELINE left angry]
+		Vocês não sabem apreciar comida boa.
+		Vou comer tudo sozinha.
+
+		[MADELINE right sad]
+		Você não precisa fazer isso.
+
+		[BADELINE left worried]
+		É... foi uma ameaça vazia.
+
+EP_PIE_OKAY=
+		[OSHIRO left normal]
+		O importante é que você{n}deu seu melhor, {+MS_MADELINE}.
+
+		[BADELINE left angry]
+		Quem é que convidou esse cara?
+
+		[THEO left thinking]
+		Qual é, está muito bom.
+
+		[GRANNY left normal]
+		Certamente, já comi piores.
+
+		[THEO left normal]
+		Obrigado pelo sorvete, {+MADELINE}.
+
+EP_PIE_REALLY_GOOD=
+		[GRANNY left normal]
+		Estou impressionada!
+		Esse banana split faz concorrência à minha cozinha.
+
+		[BADELINE left normal]
+		Nada mal.
+
+		[THEO left excited]
+		Mano do céu!
+
+		[THEO left normal]
+		Isso está bom demais.
+
+		[OSHIRO left normal]
+		{+MS_MADELINE}, está disponível para{n}preparar nosso banquete de reinauguração?
+
+		[THEO left excited]
+		Posso levar um pedaço pra casa pra {+ALEX}?
+		Ah, espera... vai derreter.
+
+EP_PIE_AMAZING=
+		[THEO left wtf]
+		{+MADELINE}.
+
+		[THEO left excited]
+		Essa é a melhor coisa que eu já provei!
+
+		[MADELINE right sad]
+		Qual é? Fala sério.
+
+		[GRANNY left normal]
+		Ele está certo, bem.
+		Ficou delicioso.
+
+		[OSHIRO left normal]
+		Realmente magnífico, {+MS_MADELINE}.
+
+		[OSHIRO left worried]
+		{~}Uma sinfonia para as papilas gustativas!{/~}
+
+		[OSHIRO left worried]
+		{~}Eu não imaginava que um sorvete assim fosse possível!{/~}
+
+		[BADELINE left scoff]
+		Posso receber crédito parcial por ele?
+
+		[MADELINE right normal]
+		Uau, valeu, pessoal.
+		Me esforcei muito por isso.

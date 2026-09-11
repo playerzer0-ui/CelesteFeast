@@ -1,0 +1,183 @@
+EP_CABIN=
+		[GRANNY right normal]
+		Contente de te revoir.
+
+		[THEO right excited]
+		{+MADELINE}!
+		As-tu atteint le sommet ?
+
+		{trigger 0 Badeline emerges}
+
+		[MADELINE left normal]
+		Oui, on a réussi.
+		C’était incroyable.
+
+		[GRANNY right normal]
+		Magnifique, n’est-ce pas ?
+
+		[BADELINE left upset]
+		Je pensais que ça ne vaudrait pas le coup...
+
+		[BADELINE left normal]
+		Mais je me trompais complètement.
+
+		[THEO right thinking]
+		J’aurais dû te passer mon téléphone{n}pour que tu prennes {~}le selfie ultime.{/~}
+
+		{trigger 1 Fade out, hear knock on door, fade in and Oshiro enters}
+
+		[OSHIRO left normal]
+		Bonsoir, tout le monde.
+
+		[BADELINE right angry]
+		Qu’est-ce que {~}vous{/~} faites ici ?
+
+		[OSHIRO left normal]
+		Un petit oiseau m’a dit qu’il y avait une fête.
+
+		[OSHIRO left sidehappy]
+		{+thought}RSVP-par-oiseau, positivement magique !{+endthought}
+
+		[OSHIRO left drama]
+		Mais si je ne suis pas le bienvenu, je peux partir.
+
+		[MADELINE right sad]
+		S’il vous plaît, restez {+MROSHIRO}.
+
+		[MADELINE right normal]
+		Je suis contente de vous voir.
+
+		{trigger 2 Oshiro settles in}
+
+		[GRANNY left normal]
+		Vous savez, c’est la première fois que je vous{n}vois en dehors de votre hôtel, {+OSHIRO}.
+		Je suis contente que vous soyez venu.
+		{+MADELINE} nous prépare un festin avec tous{n}les ingrédients qu’elle a ramassés.
+
+		[OSHIRO left normal]
+		Oh, c’est merveilleux, {+MS_MADELINE}.
+
+		[THEO right normal]
+		Attends, attends... des ingrédients ? J’en ai jamais vu.
+
+		[THEO right excited]
+		Enfin bref, ça va être génial !
+
+		[BADELINE right scoff]
+		Ne vous emballez pas. Ce n’est pas vraiment un grand festin.
+
+		{trigger 3 Maddy Turns}
+
+		[MADELINE left normal]
+		Je sais que tu l’attendais avec impatience, pourtant.
+
+		[BADELINE right worried]
+		Exact.
+
+		{trigger 3 Maddy Turns}
+
+		[MADELINE right sad]
+		Je ne sais pas si je serai à{n}la hauteur des attentes, {+THEO}.
+
+		[MADELINE right normal]
+		Mais j’ai fait de mon mieux.
+
+EP_PIE_START=
+		[MADELINE right normal]
+		Alors ?
+		C’est comment ?
+
+EP_PIE_DISAPPOINTED=
+		[THEO left wtf]
+		Une glace ?
+
+		[OSHIRO left worried]
+		C’est une plaisanterie, {+MS_MADELINE} ?
+
+		[GRANNY left normal]
+		Bon, on a bien un festin, j’imagine.{n}Tout le monde prend une toute petite cuillère.
+
+EP_PIE_GROSSED_OUT=
+		[THEO left wtf]
+		{+MADELINE}, c’est vraiment gentil d’avoir préparé ça pour nous.
+		J’imagine qu’il n’y avait pas grand-chose{n}à trouver sur cette montagne.
+
+		[GRANNY left normal]
+		C’est l’intention qui compte.
+
+		[BADELINE left angry]
+		Vous ne savez pas apprécier les bonnes choses.
+		Je vais tout manger toute seule.
+
+		[MADELINE right sad]
+		Tu n’es pas obligée de faire ça.
+
+		[BADELINE left worried]
+		Ouais... c’était une menace en l’air.
+
+EP_PIE_OKAY=
+		[OSHIRO left normal]
+		Ce qui compte c’est que vous{n}ayez fait de votre mieux, {+MS_MADELINE}.
+
+		[BADELINE left angry]
+		Qui a invité ce type ?
+
+		[THEO left thinking]
+		Allez, c’est très bon.
+
+		[GRANNY left normal]
+		J’ai mangé bien pire.
+
+		[THEO left normal]
+		Merci pour la glace, {+MADELINE}.
+
+EP_PIE_REALLY_GOOD=
+		[GRANNY left normal]
+		Je suis impressionnée !
+		Ce banana split rivalise avec ma cuisine.
+
+		[BADELINE left normal]
+		Pas mal.
+
+		[THEO left excited]
+		Nom de Dieu !
+
+		[THEO left normal]
+		C’est trop bon.
+
+		[OSHIRO left normal]
+		{+MS_MADELINE}, êtes-vous disponible pour{n}préparer notre banquet de réouverture ?
+
+		[THEO left excited]
+		Je peux en ramener une part chez moi pour {+ALEX} ?
+		Ah, non... ça va fondre.
+
+EP_PIE_AMAZING=
+		[THEO left wtf]
+		{+MADELINE}.
+
+		[THEO left excited]
+		Je n’ai jamais rien mangé d’aussi bon !
+
+		[MADELINE right sad]
+		Allez, sois honnête.
+
+		[GRANNY left normal]
+		Il a raison, ma chère.
+		C’est délicieux.
+
+		[OSHIRO left normal]
+		C’est vraiment une pure merveille, {+MS_MADELINE}.
+
+		[OSHIRO left worried]
+		{~}Une symphonie pour les papilles !{/~}
+
+		[OSHIRO left worried]
+		{~}Je ne pensais pas qu’une glace pareille était possible !{/~}
+
+		[BADELINE left scoff]
+		On peut dire que j’y suis un{n}peu pour quelque chose aussi ?
+
+		[MADELINE right normal]
+		Waouh, merci à vous !
+		J’y ai vraiment mis tout mon cœur.

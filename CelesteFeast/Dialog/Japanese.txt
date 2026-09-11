@@ -1,0 +1,183 @@
+EP_CABIN=
+		[GRANNY right normal]
+		おかえり。
+
+		[THEO right excited]
+		{+MADELINE}！
+		どうだった？頂上には…？
+
+		{trigger 0 Badeline emerges}
+
+		[MADELINE left normal]
+		うん。行けたよ。
+		最高だった。
+
+		[GRANNY right normal]
+		きれいだったろう？
+
+		[BADELINE left upset]
+		わざわざ登るなんて労力のムダだと思ったけど…
+
+		[BADELINE left normal]
+		ぜんっぜんムダじゃなかったぜ。
+
+		[THEO right thinking]
+		スマホ貸しときゃよかったな。{n}それこそ、{~}最強のセルフィー{/~}撮れたのに。
+
+		{trigger 1 Fade out, hear knock on door, fade in and Oshiro enters}
+
+		[OSHIRO left normal]
+		こんばんは。皆さん、おそろいで。
+
+		[BADELINE right angry]
+		なんで{~}アンタ{/~}がいんだよ？
+
+		[OSHIRO left normal]
+		鳥さんが教えてくれました。{n}なんでも、パーティがあるそうで。
+
+		[OSHIRO left sidehappy]
+		{+thought}鳥が招待状代わりだなんて、{n}きっと特別なパーティに違いない！{+endthought}
+
+		[OSHIRO left drama]
+		ですが、ご迷惑でしたら、おいとまいたしますよ。
+
+		[MADELINE right sad]
+		いいえ、{+MROSHIRO}、いてください。
+
+		[MADELINE right normal]
+		また会えてうれしいです。
+
+		{trigger 2 Oshiro settles in}
+
+		[GRANNY left normal]
+		{+OSHIRO}、あのホテルの外で会うのは、初めてだねえ。
+		外に出られて、よかったよかった。
+		{+MADELINE}が、山で集めた材料を使って{n}ごちそうを作ってくれてるんだよ。
+
+		[OSHIRO left normal]
+		それはそれは、{+MS_MADELINE}。
+
+		[THEO right normal]
+		待て待て…材料？そんなの見た覚えないぞ。
+
+		[THEO right excited]
+		まあいいや、楽しみだなあ！
+
+		[BADELINE right scoff]
+		あんま期待しないほうがいいぜ。{n}大したごちそうじゃないからな。
+
+		{trigger 3 Maddy Turns}
+
+		[MADELINE left normal]
+		でも、楽しみにしてたんでしょ。
+
+		[BADELINE right worried]
+		たしかに。
+
+		{trigger 3 Maddy Turns}
+
+		[MADELINE right sad]
+		{+THEO}が期待するほど{n}おいしくないかもしれないけど…
+
+		[MADELINE right normal]
+		がんばって作ってみたよ。
+
+EP_PIE_START=
+		[MADELINE right normal]
+		…どう？
+		おいしいかな…？
+
+EP_PIE_DISAPPOINTED=
+		[THEO left wtf]
+		アイス…？
+
+		[OSHIRO left worried]
+		{+MS_MADELINE}、{n}これは、何かの冗談でしょうか？
+
+		[GRANNY left normal]
+		まあ、ごちそうには違いないねえ。{n}みんな、ちっちゃいスプーンを持っといで。
+
+EP_PIE_GROSSED_OUT=
+		[THEO left wtf]
+		{+MADELINE}、オレたちのために{n}作ってくれたのは、ありがたいけど…
+		この山じゃ、材料もあんまり{n}見つからなかったんだろうな。
+
+		[GRANNY left normal]
+		大事なのは、気持ちだよ。
+
+		[BADELINE left angry]
+		ったく、これだから味のわからん連中は。
+		オレが全部食ってやる。
+
+		[MADELINE right sad]
+		いいよ、無理しなくて。
+
+		[BADELINE left worried]
+		わかってる…言ってみただけだよ。
+
+EP_PIE_OKAY=
+		[OSHIRO left normal]
+		{+MS_MADELINE}は、ベストをつくした。{n}大事なのは、そこですよ。
+
+		[BADELINE left angry]
+		誰だよ、コイツ呼んだの？
+
+		[THEO left thinking]
+		いや、すげえうまいよ、これ。
+
+		[GRANNY left normal]
+		ま、悪くは、ないね。
+
+		[THEO left normal]
+		{+MADELINE}、アイスありがとな。
+
+EP_PIE_REALLY_GOOD=
+		[GRANNY left normal]
+		こりゃ、驚いた！
+		このバナナスプリット、アタシの料理にも負けてないよ。
+
+		[BADELINE left normal]
+		悪くねえな。
+
+		[THEO left excited]
+		おおおお！！
+
+		[THEO left normal]
+		すっげーうめぇ。
+
+		[OSHIRO left normal]
+		{+MS_MADELINE}、セレステホテルの{n}リニューアルオープン記念パーティの際には、{n}ぜひ、料理をお願いしたいのですが？
+
+		[THEO left excited]
+		{+ALEX}へのおみやげに、ひと切れ持って帰っていい？
+		あ、ダメだ。溶けちまうな。
+
+EP_PIE_AMAZING=
+		[THEO left wtf]
+		{+MADELINE}…
+
+		[THEO left excited]
+		オレ、こんなうまいもの食ったの、生まれて初めてだ！ 
+
+		[MADELINE right sad]
+		{+THEO}、ホントのこと言ってよ。
+
+		[GRANNY left normal]
+		ホントのことさ。
+		ホントに、おいしいよ。
+
+		[OSHIRO left normal]
+		見事な出来栄えですよ、{+MS_MADELINE}。
+
+		[OSHIRO left worried]
+		{~}舌がおどりだしそうです！{/~}
+
+		[OSHIRO left worried]
+		{~}こんなアイスが存在するなんて、思いもしませんでした！{/~}
+
+		[BADELINE left scoff]
+		これって、ある意味、オレもほめられてるってこと？
+
+		[MADELINE right normal]
+		みんな、ありがとう。
+		がんばったかいがあったよ。

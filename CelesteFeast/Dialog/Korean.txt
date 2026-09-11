@@ -1,0 +1,183 @@
+EP_CABIN=
+		[GRANNY right normal]
+		잘 돌아왔어.
+
+		[THEO right excited]
+		{+MADELINE}!
+		정상에 도달했어?
+
+		{trigger 0 Badeline emerges}
+
+		[MADELINE left normal]
+		응, 우리가 해냈어.
+		정말 엄청났어.
+
+		[GRANNY right normal]
+		아름답지?
+
+		[BADELINE left upset]
+		그럴만한 가치가 있을 줄 몰랐지만...
+
+		[BADELINE left normal]
+		완벽했어.
+
+		[THEO right thinking]
+		{~}궁극의 셀카{/~}를 찍을 수 있도록{n}내 스마트폰을 줬어야 하는 건데.
+
+		{trigger 1 Fade out, hear knock on door, fade in and Oshiro enters}
+
+		[OSHIRO left normal]
+		모두 안녕하세요.
+
+		[BADELINE right angry]
+		{~}당신{/~}이 왜 여기에 있지?
+
+		[OSHIRO left normal]
+		파티가 있다고 작은 새가 저에게 말했어.
+
+		[OSHIRO left sidehappy]
+		{+thought}새의 초대장, 정말 마법 같았어요!{+endthought}
+
+		[OSHIRO left drama]
+		하지만 원하지 않는다면 떠날게요.
+
+		[MADELINE right sad]
+		여기 있어요, {+MROSHIRO}.
+
+		[MADELINE right normal]
+		다시 만나서 반가워요.
+
+		{trigger 2 Oshiro settles in}
+
+		[GRANNY left normal]
+		당신의 호텔 밖에서 보는 것은{n}처음이네, {+OSHIRO}.
+		나올 수 있어서 기쁘네.
+		{+MADELINE}이 모아 온 재료들로{n}우리에게 잔치를 차려 주고 있어.
+
+		[OSHIRO left normal]
+		아, 멋지네요, {+MS_MADELINE}.
+
+		[THEO right normal]
+		잠깐, 잠깐... 재료라고? 난 본 적이 없는데.
+
+		[THEO right excited]
+		뭐, 됐어. 정말 맛있을 거야!
+
+		[BADELINE right scoff]
+		너무 기대하지 마. 그렇게 대단한 잔치는 아니니까.
+
+		{trigger 3 Maddy Turns}
+
+		[MADELINE left normal]
+		그래도 기대하고 있었잖아.
+
+		[BADELINE right worried]
+		그랬지.
+
+		{trigger 3 Maddy Turns}
+
+		[MADELINE right sad]
+		기대에 미칠지는 모르겠어, {+THEO}.
+
+		[MADELINE right normal]
+		하지만 난 최선을 다했어.
+
+EP_PIE_START=
+		[MADELINE right normal]
+		어때?
+		맛이 어때?
+
+EP_PIE_DISAPPOINTED=
+		[THEO left wtf]
+		아이스크림 하나?
+
+		[OSHIRO left worried]
+		농담입니까, {+MS_MADELINE}?
+
+		[GRANNY left normal]
+		뭐, 잔치는 잔치구나.{n}다들 아주 작은 숟가락 하나씩 가져와.
+
+EP_PIE_GROSSED_OUT=
+		[THEO left wtf]
+		{+MADELINE}, 우리를 위해 이걸 만들어 줘서 정말 고마워...
+		이 산에는 모을 게 별로 없었던 모양이네.
+
+		[GRANNY left normal]
+		노력은 가상하구나.
+
+		[BADELINE left angry]
+		당신들은 좋은 음식을 즐길 줄 몰라.
+		내가 혼자 다 먹겠어.
+
+		[MADELINE right sad]
+		그러지 않아도 돼.
+
+		[BADELINE left worried]
+		응... 허풍이었어.
+
+EP_PIE_OKAY=
+		[OSHIRO left normal]
+		최선을 다했다는 것이{n}중요하죠, {+MS_MADELINE}.
+
+		[BADELINE left angry]
+		누가 이 아저씨를 초대한 거야?
+
+		[THEO left thinking]
+		아냐, 좋아.
+
+		[GRANNY left normal]
+		난 이것보다 안 좋은 것 먹어 봤어.
+
+		[THEO left normal]
+		아이스크림 고마워, {+MADELINE}.
+
+EP_PIE_REALLY_GOOD=
+		[GRANNY left normal]
+		놀라운데!
+		이 바나나 스플릿, 내 요리와 견줘도 손색이 없어.
+
+		[BADELINE left normal]
+		나쁘지 않은데.
+
+		[THEO left excited]
+		우왓!
+
+		[THEO left normal]
+		너무 맛있다.
+
+		[OSHIRO left normal]
+		{+MS_MADELINE}, 재개장 파티에서{n}음식을 조달해주실 수 있을까요?
+
+		[THEO left excited]
+		{+ALEX}를 위해 한 조각 가져가도 될까?
+		아, 잠깐... 녹아 버리겠네.
+
+EP_PIE_AMAZING=
+		[THEO left wtf]
+		{+MADELINE}.
+
+		[THEO left excited]
+		내가 맛본 것 중 최고야!
+
+		[MADELINE right sad]
+		에이. 솔직히 말해.
+
+		[GRANNY left normal]
+		맞는 말이야, 얘야.
+		아주 맛있어.
+
+		[OSHIRO left normal]
+		정말 대단합니다, {+MS_MADELINE}.
+
+		[OSHIRO left worried]
+		{~}미각을 위한 교향곡!{/~}
+
+		[OSHIRO left worried]
+		{~}이런 아이스크림이 가능할 줄은 몰랐습니다!{/~}
+
+		[BADELINE left scoff]
+		나도 만드는 데 도왔다는 것을 강조할 수 있을까?
+
+		[MADELINE right normal]
+		우와, 다들 고마워요.
+		정말 열심히 노력했어요.

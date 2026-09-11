@@ -1,0 +1,183 @@
+EP_CABIN=
+		[GRANNY right normal]
+		欢迎回来。
+
+		[THEO right excited]
+		{+MADELINE}！
+		你们登顶了吗？
+
+		{trigger 0 Badeline emerges}
+
+		[MADELINE left normal]
+		是的，我们登顶了。
+		真是不可思议。
+
+		[GRANNY right normal]
+		美极了，不是吗？
+
+		[BADELINE left upset]
+		我之前不认为那么做是值得的...
+
+		[BADELINE left normal]
+		但确实不虚此行。
+
+		[THEO right thinking]
+		我真应该把我的手机给你，{n}好让你能拍下{~}最美的自拍。{/~}
+
+		{trigger 1 Fade out, hear knock on door, fade in and Oshiro enters}
+
+		[OSHIRO left normal]
+		大家晚上好。
+
+		[BADELINE right angry]
+		{~}你{/~}在这里做什么？
+
+		[OSHIRO left normal]
+		有只小鸟告诉我那里会有聚会。
+
+		[OSHIRO left sidehappy]
+		{+thought}小鸟带我来的，真是魔幻至极！{+endthought}
+
+		[OSHIRO left drama]
+		但要是我不受欢迎，我这就走人。
+
+		[MADELINE right sad]
+		请留下来把，{+MROSHIRO}。
+
+		[MADELINE right normal]
+		很高兴见到你。
+
+		{trigger 2 Oshiro settles in}
+
+		[GRANNY left normal]
+		这可是我第一次见到你{n}走出你的那家山庄，{+OSHIRO}。
+		你能来，我很荣幸。
+		{+MADELINE}正用她一路收集的所有食材{n}给我们准备一顿大餐。
+
+		[OSHIRO left normal]
+		啊，那真是太棒了，{+MS_MADELINE}。
+
+		[THEO right normal]
+		等等，等等...食材？我怎么一个都没见过。
+
+		[THEO right excited]
+		算了，这一定会美妙无比！
+
+		[BADELINE right scoff]
+		别期望太高了。其实也算不上什么大餐。
+
+		{trigger 3 Maddy Turns}
+
+		[MADELINE left normal]
+		不过我知道你一直很期待。
+
+		[BADELINE right worried]
+		那倒是。
+
+		{trigger 3 Maddy Turns}
+
+		[MADELINE right sad]
+		我不敢保证能达到你的期待，{+THEO}。
+
+		[MADELINE right normal]
+		不过我已经尽力了。
+
+EP_PIE_START=
+		[MADELINE right normal]
+		那么？
+		味道如何？
+
+EP_PIE_DISAPPOINTED=
+		[THEO left wtf]
+		一个冰淇淋？
+
+		[OSHIRO left worried]
+		这是开玩笑吗，{+MS_MADELINE}？
+
+		[GRANNY left normal]
+		好吧，这也算是一顿大餐了。{n}大家都拿一把小小的勺子吧。
+
+EP_PIE_GROSSED_OUT=
+		[THEO left wtf]
+		{+MADELINE}，真的很感谢你为我们做了这个...
+		看来这座山上确实没多少东西可收集。
+
+		[GRANNY left normal]
+		理念对了就行。
+
+		[BADELINE left angry]
+		你们这些人就是不懂享用美食。
+		我自己会全吃了的。
+
+		[MADELINE right sad]
+		你不需要这样。
+
+		[BADELINE left worried]
+		是的...这个威胁没什么魄力。
+
+EP_PIE_OKAY=
+		[OSHIRO left normal]
+		重要的是，你尽了最大努力，{n}{+MS_MADELINE}。
+
+		[BADELINE left angry]
+		谁把这家伙请来的？
+
+		[THEO left thinking]
+		得了，真的很不错。
+
+		[GRANNY left normal]
+		我吃过更糟的。
+
+		[THEO left normal]
+		多谢你的冰淇淋，{+MADELINE}。
+
+EP_PIE_REALLY_GOOD=
+		[GRANNY left normal]
+		真让我大开眼界！
+		这香蕉船都快赶上我的厨艺了。
+
+		[BADELINE left normal]
+		还不错。
+
+		[THEO left excited]
+		我勒个去！
+
+		[THEO left normal]
+		这真是太好吃了。
+
+		[OSHIRO left normal]
+		{+MS_MADELINE}，你能否为我们的重新开业宴会{n}提供餐饮呢？
+
+		[THEO left excited]
+		我能带一份回家给 {+ALEX} 吗？
+		哦等等...它会融化的。
+
+EP_PIE_AMAZING=
+		[THEO left wtf]
+		{+MADELINE}。
+
+		[THEO left excited]
+		这是我尝过的最好吃的东西！
+
+		[MADELINE right sad]
+		得了。说实话吧。
+
+		[GRANNY left normal]
+		他说得对，亲爱的。
+		这太好吃了。
+
+		[OSHIRO left normal]
+		真是无与伦比，{+MS_MADELINE}。
+
+		[OSHIRO left worried]
+		{~}一场让味蕾起舞的交响乐！{/~}
+
+		[OSHIRO left worried]
+		{~}我真没想到冰淇淋还能做到这种地步！{/~}
+
+		[BADELINE left scoff]
+		我能来分一点功劳吗？
+
+		[MADELINE right normal]
+		好吧，谢谢你们。
+		我在这上面花了不少心思。
