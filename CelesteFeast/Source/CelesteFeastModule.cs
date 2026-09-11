@@ -51,50 +51,20 @@ namespace Celeste.Mod.CelesteFeast
 
 
         // ============================================================
-        // STRAWBERRIES COUNTER PRIVATE DISPLAY FIELDS
-        // ============================================================
-        //
-        // We deliberately modify THESE temporarily instead of
-        // counter.Amount / OutOf / ShowOutOf.
-        //
-        // Setting Amount triggers sounds, wiggles and flashes.
-        // These fields are only the cached strings used by Render().
-        // ============================================================
-
-        private static readonly FieldInfo CounterAmountStringField =
-            typeof(StrawberriesCounter).GetField(
-                "sAmount",
-                BindingFlags.NonPublic |
-                BindingFlags.Instance
-            );
-
-        private static readonly FieldInfo CounterOutOfStringField =
-            typeof(StrawberriesCounter).GetField(
-                "sOutOf",
-                BindingFlags.NonPublic |
-                BindingFlags.Instance
-            );
-
-        private static readonly FieldInfo CounterShowOutOfField =
-            typeof(StrawberriesCounter).GetField(
-                "showOutOf",
-                BindingFlags.NonPublic |
-                BindingFlags.Instance
-            );
-
-
-        // ============================================================
         // IL HOOKS
         // ============================================================
 
         // Little collectible icons shown on checkpoint polaroids.
         private ILHook chapterPanelCheckpointHook;
 
-        // Changes the texture used by StrawberriesCounter.
+        // Chapter Panel / in-level HUD / File Select counter.
         private ILHook strawberriesCounterHook;
 
         // Journal Progress strawberry-column icon.
         private ILHook journalProgressHook;
+
+        // Epilogue feast result pictures.
+        private ILHook endingPortraitHook;
 
 
         // ============================================================
@@ -126,21 +96,10 @@ namespace Celeste.Mod.CelesteFeast
         public override void Load()
         {
             // --------------------------------------------------------
-            // Gameplay collectible sprites
+            // Gameplay collectible
             // --------------------------------------------------------
 
-            On.Celeste.Strawberry.Added +=
-                Strawberry_Added;
-
-
-            // --------------------------------------------------------
-            // StrawberriesCounter render wrapper
-            //
-            // This changes ONLY the displayed chapter count.
-            // --------------------------------------------------------
-
-            On.Celeste.StrawberriesCounter.Render +=
-                StrawberriesCounter_RenderDetour;
+            On.Celeste.Strawberry.Added += Strawberry_Added;
 
 
             // --------------------------------------------------------
@@ -173,7 +132,7 @@ namespace Celeste.Mod.CelesteFeast
 
 
             // --------------------------------------------------------
-            // StrawberryCounter icon replacement
+            // Strawberry counters
             // --------------------------------------------------------
 
             MethodInfo strawberriesRenderMethod =
@@ -188,7 +147,7 @@ namespace Celeste.Mod.CelesteFeast
                 strawberriesCounterHook =
                     new ILHook(
                         strawberriesRenderMethod,
-                        StrawberriesCounter_RenderIL
+                        StrawberriesCounter_Render
                     );
             }
             else
@@ -233,6 +192,35 @@ namespace Celeste.Mod.CelesteFeast
                     "Could not find OuiJournalProgress constructor."
                 );
             }
+
+
+            // --------------------------------------------------------
+            // Epilogue feast result pictures
+            // --------------------------------------------------------
+
+            MethodInfo endingOnBeginMethod =
+                typeof(CS08_Ending).GetMethod(
+                    "OnBegin",
+                    BindingFlags.Public |
+                    BindingFlags.Instance
+                );
+
+            if (endingOnBeginMethod != null)
+            {
+                endingPortraitHook =
+                    new ILHook(
+                        endingOnBeginMethod,
+                        CS08_Ending_OnBegin
+                    );
+            }
+            else
+            {
+                Logger.Log(
+                    LogLevel.Warn,
+                    nameof(CelesteFeastModule),
+                    "Could not find CS08_Ending.OnBegin."
+                );
+            }
         }
 
 
@@ -242,11 +230,7 @@ namespace Celeste.Mod.CelesteFeast
 
         public override void Unload()
         {
-            On.Celeste.Strawberry.Added -=
-                Strawberry_Added;
-
-            On.Celeste.StrawberriesCounter.Render -=
-                StrawberriesCounter_RenderDetour;
+            On.Celeste.Strawberry.Added -= Strawberry_Added;
 
 
             chapterPanelCheckpointHook?.Dispose();
@@ -259,6 +243,10 @@ namespace Celeste.Mod.CelesteFeast
 
             journalProgressHook?.Dispose();
             journalProgressHook = null;
+
+
+            endingPortraitHook?.Dispose();
+            endingPortraitHook = null;
         }
 
 
@@ -333,12 +321,23 @@ namespace Celeste.Mod.CelesteFeast
             Scene scene
         )
         {
-            // Let vanilla construct everything normally first.
+            // Let vanilla build the Strawberry normally first.
+            //
+            // This creates:
+            //
+            // - sprite
+            // - bloom
+            // - light
+            // - wigglers
+            // - follower
+            // - etc.
+            //
+            // We modify only the instance after vanilla is finished.
             orig(self, scene);
 
 
             // --------------------------------------------------------
-            // Leave special / already-collected berries untouched.
+            // Leave special strawberries untouched
             // --------------------------------------------------------
 
             if (
@@ -352,6 +351,10 @@ namespace Celeste.Mod.CelesteFeast
                 return;
             }
 
+
+            // --------------------------------------------------------
+            // Find current chapter
+            // --------------------------------------------------------
 
             Level level =
                 scene as Level;
@@ -371,7 +374,7 @@ namespace Celeste.Mod.CelesteFeast
 
 
             // --------------------------------------------------------
-            // Get vanilla Sprite.
+            // Replace vanilla strawberry Sprite
             // --------------------------------------------------------
 
             if (
@@ -389,18 +392,10 @@ namespace Celeste.Mod.CelesteFeast
             }
 
 
-            // --------------------------------------------------------
-            // Remove vanilla berry Sprite.
-            // --------------------------------------------------------
-
             self.Remove(
                 oldSprite
             );
 
-
-            // --------------------------------------------------------
-            // Create food Sprite.
-            // --------------------------------------------------------
 
             Sprite newSprite =
                 GFX.SpriteBank.Create(
@@ -419,10 +414,8 @@ namespace Celeste.Mod.CelesteFeast
             );
 
 
-            // --------------------------------------------------------
-            // Restore vanilla Strawberry.OnAnimate.
-            // --------------------------------------------------------
-
+            // Restore Strawberry.OnAnimate so vanilla collection
+            // behavior still works with our replacement sprite.
             if (OnAnimateMethod != null)
             {
                 newSprite.OnFrameChange =
@@ -434,280 +427,14 @@ namespace Celeste.Mod.CelesteFeast
             }
 
 
+            // Winged berries need the flap animation.
             if (self.Winged)
             {
                 newSprite.Play(
                     "flap"
                 );
             }
-        }
 
-
-        // ============================================================
-        // GAMEPLAY HUD COUNTER DISPLAY
-        // ============================================================
-        //
-        // IMPORTANT:
-        //
-        // We DO NOT change:
-        //
-        //     counter.Amount
-        //     counter.OutOf
-        //     counter.ShowOutOf
-        //
-        // because Amount's setter triggers sound / wiggle / flash.
-        //
-        // Instead, immediately before vanilla Render(), we temporarily
-        // change:
-        //
-        //     sAmount
-        //     sOutOf
-        //     showOutOf
-        //
-        // Then after Render() finishes, the original values are put
-        // straight back.
-        //
-        // Vanilla therefore remains fully responsible for:
-        //
-        //     - when the counter appears
-        //     - when it disappears
-        //     - collection sound
-        //     - wiggle
-        //     - flash
-        //     - animation / timer
-        //
-        // ============================================================
-
-        private static void StrawberriesCounter_RenderDetour(
-            On.Celeste.StrawberriesCounter.orig_Render orig,
-            StrawberriesCounter self
-        )
-        {
-            // --------------------------------------------------------
-            // Only counters inside gameplay Levels can be candidates.
-            // --------------------------------------------------------
-
-            if (
-                self.Entity?.Scene
-                is not Level level
-            )
-            {
-                orig(self);
-                return;
-            }
-
-
-            // --------------------------------------------------------
-            // The Epilogue results counter also exists inside a Level.
-            // It must stay a GLOBAL Ingredients counter.
-            // --------------------------------------------------------
-
-            if (self.Entity is CS08_Ending)
-            {
-                orig(self);
-                return;
-            }
-
-
-            string sid =
-                level.Session.Area.SID;
-
-
-            // --------------------------------------------------------
-            // Only alter chapters handled by CelesteFeast.
-            // --------------------------------------------------------
-
-            if (
-                GetGameplayCollectibleSprite(
-                    sid
-                ) == null
-            )
-            {
-                orig(self);
-                return;
-            }
-
-
-            // --------------------------------------------------------
-            // Make sure reflection succeeded.
-            // --------------------------------------------------------
-
-            if (
-                CounterAmountStringField == null ||
-                CounterOutOfStringField == null ||
-                CounterShowOutOfField == null
-            )
-            {
-                orig(self);
-                return;
-            }
-
-
-            AreaKey area =
-                level.Session.Area;
-
-            AreaData areaData =
-                AreaData.Get(
-                    area
-                );
-
-            global::Celeste.SaveData saveData =
-                global::Celeste.SaveData.Instance;
-
-
-            if (
-                areaData == null ||
-                saveData == null
-            )
-            {
-                orig(self);
-                return;
-            }
-
-
-            // --------------------------------------------------------
-            // Validate AreaStats.
-            // --------------------------------------------------------
-
-            if (
-                area.ID < 0 ||
-                area.ID >= saveData.Areas_Safe.Count
-            )
-            {
-                orig(self);
-                return;
-            }
-
-
-            AreaStats areaStats =
-                saveData.Areas_Safe[
-                    area.ID
-                ];
-
-
-            if (
-                areaStats == null ||
-                areaStats.Modes == null ||
-                (int)area.Mode < 0 ||
-                (int)area.Mode >= areaStats.Modes.Length
-            )
-            {
-                orig(self);
-                return;
-            }
-
-
-            AreaModeStats modeStats =
-                areaStats.Modes[
-                    (int)area.Mode
-                ];
-
-
-            if (
-                modeStats == null ||
-                areaData.Mode == null ||
-                areaData.Mode.Length == 0 ||
-                areaData.Mode[0] == null
-            )
-            {
-                orig(self);
-                return;
-            }
-
-
-            // --------------------------------------------------------
-            // Save vanilla display strings.
-            // --------------------------------------------------------
-
-            string originalAmount =
-                CounterAmountStringField.GetValue(
-                    self
-                ) as string;
-
-            string originalOutOf =
-                CounterOutOfStringField.GetValue(
-                    self
-                ) as string;
-
-            bool originalShowOutOf =
-                (bool)CounterShowOutOfField.GetValue(
-                    self
-                );
-
-
-            // --------------------------------------------------------
-            // Build CelesteFeast display.
-            //
-            // Example:
-            //
-            // Chapter 1:
-            //
-            //     3 / 20
-            //
-            // If Golden is collected after all 20:
-            //
-            //     21 / 20
-            // --------------------------------------------------------
-
-            string chapterAmount =
-                modeStats.TotalStrawberries
-                    .ToString();
-
-            string chapterOutOf =
-                "/" +
-                areaData.Mode[0]
-                    .TotalStrawberries;
-
-
-            try
-            {
-                // ----------------------------------------------------
-                // Temporarily replace DISPLAY ONLY.
-                //
-                // These are direct FieldInfo writes, therefore the
-                // Amount property setter is never called.
-                // ----------------------------------------------------
-
-                CounterAmountStringField.SetValue(
-                    self,
-                    chapterAmount
-                );
-
-                CounterOutOfStringField.SetValue(
-                    self,
-                    chapterOutOf
-                );
-
-                CounterShowOutOfField.SetValue(
-                    self,
-                    true
-                );
-
-
-                // Let vanilla draw the counter normally.
-                orig(self);
-            }
-            finally
-            {
-                // ----------------------------------------------------
-                // Restore vanilla state immediately after rendering.
-                // ----------------------------------------------------
-
-                CounterAmountStringField.SetValue(
-                    self,
-                    originalAmount
-                );
-
-                CounterOutOfStringField.SetValue(
-                    self,
-                    originalOutOf
-                );
-
-                CounterShowOutOfField.SetValue(
-                    self,
-                    originalShowOutOf
-                );
-            }
         }
 
 
@@ -804,15 +531,10 @@ namespace Celeste.Mod.CelesteFeast
 
 
         // ============================================================
-        // STRAWBERRY COUNTER ICON IL HOOK
-        // ============================================================
-        //
-        // This hook ONLY changes which icon texture is drawn.
-        //
-        // It does not touch amounts or counter behavior.
+        // STRAWBERRY COUNTER IL HOOK
         // ============================================================
 
-        private static void StrawberriesCounter_RenderIL(
+        private static void StrawberriesCounter_Render(
             ILContext il
         )
         {
@@ -861,7 +583,6 @@ namespace Celeste.Mod.CelesteFeast
         // Handles:
         //
         // - File Select
-        // - Epilogue
         // - Chapter Panel
         // - In-level HUD
         //
@@ -875,7 +596,7 @@ namespace Celeste.Mod.CelesteFeast
             // --------------------------------------------------------
             // File Select
             //
-            // Global total = Ingredients
+            // Total across all chapters = Ingredients
             // --------------------------------------------------------
 
             if (counter.Entity is OuiFileSelectSlot)
@@ -885,9 +606,9 @@ namespace Celeste.Mod.CelesteFeast
 
 
             // --------------------------------------------------------
-            // Epilogue
+            // Epilogue ending screen
             //
-            // Global total = Ingredients
+            // Total ingredients collected = Ingredients
             // --------------------------------------------------------
 
             if (counter.Entity is CS08_Ending)
@@ -899,16 +620,13 @@ namespace Celeste.Mod.CelesteFeast
             // --------------------------------------------------------
             // Chapter Panel
             //
-            // Chapter-specific food.
+            // Use chapter-specific food
             // --------------------------------------------------------
 
             if (counter.Entity is OuiChapterPanel panel)
             {
                 string sid =
-                    AreaData.Get(
-                        panel.Area
-                    )?.SID;
-
+                    AreaData.Get(panel.Area)?.SID;
 
                 return GetGuiCollectibleTexture(
                     original,
@@ -920,17 +638,13 @@ namespace Celeste.Mod.CelesteFeast
             // --------------------------------------------------------
             // In-level HUD
             //
-            // Chapter-specific food.
+            // Use current chapter's food
             // --------------------------------------------------------
 
-            if (
-                counter.Entity?.Scene
-                is Level level
-            )
+            if (counter.Entity?.Scene is Level level)
             {
                 string sid =
                     level.Session.Area.SID;
-
 
                 return GetGuiCollectibleTexture(
                     original,
@@ -992,5 +706,65 @@ namespace Celeste.Mod.CelesteFeast
         {
             return "ingredients";
         }
+
+        // ============================================================
+        // EPILOGUE FEAST PORTRAIT IL HOOK
+        // ============================================================
+
+        private static void CS08_Ending_OnBegin(
+            ILContext il
+        )
+        {
+            int replaced = 0;
+
+            foreach (Instruction instruction in il.Body.Instructions)
+            {
+                if (instruction.MatchLdstr("final1"))
+                {
+                    instruction.Operand =
+                        "CelesteFeast/final1";
+
+                    replaced++;
+                }
+                else if (instruction.MatchLdstr("final2"))
+                {
+                    instruction.Operand =
+                        "CelesteFeast/final2";
+
+                    replaced++;
+                }
+                else if (instruction.MatchLdstr("final3"))
+                {
+                    instruction.Operand =
+                        "CelesteFeast/final3";
+
+                    replaced++;
+                }
+                else if (instruction.MatchLdstr("final4"))
+                {
+                    instruction.Operand =
+                        "CelesteFeast/final4";
+
+                    replaced++;
+                }
+                else if (instruction.MatchLdstr("final5"))
+                {
+                    instruction.Operand =
+                        "CelesteFeast/final5";
+
+                    replaced++;
+                }
+            }
+
+            if (replaced != 5)
+            {
+                Logger.Log(
+                    LogLevel.Warn,
+                    nameof(CelesteFeastModule),
+                    $"Expected to replace 5 Epilogue portraits, replaced {replaced}."
+                );
+            }
+        }
+
     }
 }
