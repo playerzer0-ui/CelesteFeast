@@ -281,6 +281,36 @@ namespace Celeste.Mod.CelesteFeast
 
 
         // ============================================================
+        // CHAPTER -> GAMEPLAY GHOST COLLECTIBLE
+        // ============================================================
+
+        private static string GetGameplayGhostCollectibleSprite(
+            string sid
+        )
+        {
+            return sid switch
+            {
+                "Celeste/1-ForsakenCity" =>
+                    "ghostorange",
+
+                "Celeste/2-OldSite" =>
+                    "ghosticecream",
+
+                "Celeste/3-CelestialResort" =>
+                    "ghostbanana",
+
+                "Celeste/4-GoldenRidge" =>
+                    "ghostchocolate",
+
+                "Celeste/5-MirrorTemple" =>
+                    "ghostmelon",
+
+                _ => null
+            };
+        }
+
+
+        // ============================================================
         // CHAPTER -> GUI COLLECTIBLE
         // ============================================================
 
@@ -342,10 +372,7 @@ namespace Celeste.Mod.CelesteFeast
 
             if (
                 self.Golden ||
-                self.Moon ||
-                global::Celeste.SaveData.Instance.CheckStrawberry(
-                    self.ID
-                )
+                self.Moon
             )
             {
                 return;
@@ -362,10 +389,19 @@ namespace Celeste.Mod.CelesteFeast
             string sid =
                 level?.Session.Area.SID;
 
-            string spriteId =
-                GetGameplayCollectibleSprite(
-                    sid
+            bool isGhostBerry =
+                global::Celeste.SaveData.Instance.CheckStrawberry(
+                    self.ID
                 );
+
+            string spriteId =
+                isGhostBerry
+                    ? GetGameplayGhostCollectibleSprite(
+                        sid
+                    )
+                    : GetGameplayCollectibleSprite(
+                        sid
+                    );
 
             if (spriteId == null)
             {

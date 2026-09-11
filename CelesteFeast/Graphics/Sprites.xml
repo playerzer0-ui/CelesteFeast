@@ -5,4 +5,9 @@
   <banana copy="strawberry" path="collectables/banana/" />
   <chocolate copy="strawberry" path="collectables/chocolate/" />
   <melon copy="strawberry" path="collectables/melon/" />
+  <ghostorange copy="ghostberry" path="collectables/ghostorange/"/>
+  <ghosticecream copy="ghostberry" path="collectables/ghosticecream/"/>
+  <ghostbanana copy="ghostberry" path="collectables/ghostbanana/"/>
+  <ghostchocolate copy="ghostberry" path="collectables/ghostchocolate/"/>
+  <ghostmelon copy="ghostberry" path="collectables/ghostmelon/"/>
 </Sprites>
