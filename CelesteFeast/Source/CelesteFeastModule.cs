@@ -574,24 +574,25 @@ namespace Celeste.Mod.CelesteFeast
             ILContext il
         )
         {
-            ILCursor cursor =
+            // --------------------------------------------------------
+            // Icon texture
+            // --------------------------------------------------------
+
+            ILCursor textureCursor =
                 new ILCursor(il);
 
-
             if (
-                cursor.TryGotoNext(
+                textureCursor.TryGotoNext(
                     MoveType.After,
                     MatchCollectablesStrawberry
                 )
             )
             {
-                // Push StrawberriesCounter "this".
-                cursor.Emit(
+                textureCursor.Emit(
                     OpCodes.Ldarg_0
                 );
 
-
-                cursor.EmitDelegate<
+                textureCursor.EmitDelegate<
                     Func<
                         string,
                         StrawberriesCounter,
@@ -609,6 +610,239 @@ namespace Celeste.Mod.CelesteFeast
                     "Could not find StrawberriesCounter strawberry GUI texture."
                 );
             }
+
+
+            // --------------------------------------------------------
+            // In-level chapter-local counter text
+            //
+            // Only replace values as Render() reads them. We do not
+            // assign Amount / OutOf / ShowOutOf here, so vanilla sound
+            // and wiggle behavior stays untouched.
+            // --------------------------------------------------------
+
+            int amountReadsPatched = 0;
+
+            ILCursor amountCursor =
+                new ILCursor(il);
+
+            while (
+                amountCursor.TryGotoNext(
+                    MoveType.After,
+                    instruction =>
+                        instruction.MatchLdfld<
+                            StrawberriesCounter
+                        >("sAmount")
+                )
+            )
+            {
+                amountCursor.Emit(
+                    OpCodes.Ldarg_0
+                );
+
+                amountCursor.EmitDelegate<
+                    Func<
+                        string,
+                        StrawberriesCounter,
+                        string
+                    >
+                >(
+                    ReplaceInLevelCounterAmount
+                );
+
+                amountReadsPatched++;
+            }
+
+
+            ILCursor outOfCursor =
+                new ILCursor(il);
+
+            bool outOfPatched =
+                outOfCursor.TryGotoNext(
+                    MoveType.After,
+                    instruction =>
+                        instruction.MatchLdfld<
+                            StrawberriesCounter
+                        >("sOutOf")
+                );
+
+            if (outOfPatched)
+            {
+                outOfCursor.Emit(
+                    OpCodes.Ldarg_0
+                );
+
+                outOfCursor.EmitDelegate<
+                    Func<
+                        string,
+                        StrawberriesCounter,
+                        string
+                    >
+                >(
+                    ReplaceInLevelCounterOutOf
+                );
+            }
+
+
+            ILCursor showOutOfCursor =
+                new ILCursor(il);
+
+            bool showOutOfPatched =
+                showOutOfCursor.TryGotoNext(
+                    MoveType.After,
+                    instruction =>
+                        instruction.MatchLdfld<
+                            StrawberriesCounter
+                        >("showOutOf")
+                );
+
+            if (showOutOfPatched)
+            {
+                showOutOfCursor.Emit(
+                    OpCodes.Ldarg_0
+                );
+
+                showOutOfCursor.EmitDelegate<
+                    Func<
+                        bool,
+                        StrawberriesCounter,
+                        bool
+                    >
+                >(
+                    ReplaceInLevelCounterShowOutOf
+                );
+            }
+
+
+            if (
+                amountReadsPatched == 0 ||
+                !outOfPatched ||
+                !showOutOfPatched
+            )
+            {
+                Logger.Log(
+                    LogLevel.Warn,
+                    nameof(CelesteFeastModule),
+                    "Could not fully patch in-level chapter strawberry counter text."
+                );
+            }
+        }
+
+
+        // ============================================================
+        // IN-LEVEL CHAPTER-LOCAL COUNTER
+        // ============================================================
+
+        private static bool TryGetInLevelChapterCounts(
+            StrawberriesCounter counter,
+            out int amount,
+            out int outOf
+        )
+        {
+            amount = 0;
+            outOf = 0;
+
+            // The Epilogue counter also lives in a Level scene.
+            if (
+                counter == null ||
+                counter.Entity is CS08_Ending ||
+                counter.Entity?.Scene is not Level level
+            )
+            {
+                return false;
+            }
+
+            AreaKey area =
+                level.Session.Area;
+
+            // Feast replacements only apply to chapters 1-5 A-sides.
+            if (
+                area.Mode != AreaMode.Normal ||
+                GetGameplayCollectibleSprite(
+                    area.SID
+                ) == null
+            )
+            {
+                return false;
+            }
+
+            global::Celeste.SaveData save =
+                global::Celeste.SaveData.Instance;
+
+            AreaData areaData =
+                AreaData.Get(
+                    area
+                );
+
+            if (
+                save == null ||
+                areaData == null ||
+                areaData.Mode == null ||
+                areaData.Mode.Length == 0 ||
+                areaData.Mode[0] == null
+            )
+            {
+                return false;
+            }
+
+            // SaveData chapter count includes collected goldens, so
+            // 20 normal + chapter golden can display as 21/20.
+            amount =
+                save.Areas_Safe[
+                    area.ID
+                ].Modes[
+                    (int)area.Mode
+                ].TotalStrawberries;
+
+            // Fixed normal-berry maximum from vanilla map data.
+            outOf =
+                areaData.Mode[0].TotalStrawberries;
+
+            return outOf > 0;
+        }
+
+
+        private static string ReplaceInLevelCounterAmount(
+            string original,
+            StrawberriesCounter counter
+        )
+        {
+            return TryGetInLevelChapterCounts(
+                counter,
+                out int amount,
+                out _
+            )
+                ? amount.ToString()
+                : original;
+        }
+
+
+        private static string ReplaceInLevelCounterOutOf(
+            string original,
+            StrawberriesCounter counter
+        )
+        {
+            return TryGetInLevelChapterCounts(
+                counter,
+                out _,
+                out int outOf
+            )
+                ? "/" + outOf
+                : original;
+        }
+
+
+        private static bool ReplaceInLevelCounterShowOutOf(
+            bool original,
+            StrawberriesCounter counter
+        )
+        {
+            return TryGetInLevelChapterCounts(
+                counter,
+                out _,
+                out _
+            )
+                ? true
+                : original;
         }
 
 
